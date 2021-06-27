@@ -84,18 +84,6 @@ type MatrixRowProps = {
 // the opacity to set a layer if it is locked
 const LOCKED_OPACITY = 0.25;
 
-function getCellIdsForKey(y: number, cells: EditorEntityRow): string {
-	const keyStr = cells.reduce<string>((building, cell) => {
-		if (!cell) {
-			return building;
-		}
-
-		return `${building}-${cell.id}`;
-	}, '');
-
-	return `y${y}-${keyStr || 'null-row'}`;
-}
-
 const MatrixRow: FunctionComponent<MatrixRowProps> = memo(function TileRow({
 	cells,
 	locked,
@@ -411,7 +399,7 @@ const Canvas = memo(function Canvas({
 		(row, y) =>
 			row && (
 				<MatrixRow
-					key={getCellIdsForKey(y, row)}
+					key={y}
 					cells={row}
 					locked={stage.locked}
 					room={rooms[currentRoomIndex]}

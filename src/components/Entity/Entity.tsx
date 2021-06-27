@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import { AiFillWarning } from 'react-icons/ai';
 import { entityMap } from '../../entities/entityMap';
 
+import styles from './Entity.module.css';
 import focusedStyles from '../../styles/focused.module.css';
 
 type EntityProps = {
@@ -74,6 +75,7 @@ function Entity({
 	return (
 		<div
 			className={clsx(className, {
+				[styles.spawnAnimation]: entityMap[entity.type].editorType === 'cell',
 				[focusedStyles.focused]: focused,
 			})}
 			style={style}

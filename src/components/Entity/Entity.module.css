@@ -1,0 +1,13 @@
+
+@keyframes spawn {
+    0% {
+        transform: scale(1);
+    }
+    80% {
+        transform: scale(1.08);
+    }
+}
+
+.spawnAnimation {
+    animation: spawn 0.15s ease-in-out;
+}
